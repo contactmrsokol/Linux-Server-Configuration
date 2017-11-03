@@ -92,7 +92,7 @@ sudo git clone https://github.com/contactmrsokol/Catalog.git
 
 I put this into the file:
 
-"
+
 import sys
 import logging
 
@@ -101,7 +101,7 @@ sys.path.insert(0, '/var/www/Catalog')
 
 from application import app as application
 application.secret_key = 'SUPER_SECRET_KEY'  
-"
+
 ### Update the Google OAuth client secrets file
 
 nano client_secrets.json
@@ -114,7 +114,7 @@ sudo nano /etc/apache2/sites-enabled/Catalog.conf
 
 Paste this into a file:
 
-"
+
 <VirtualHost *:80>
      ServerName  PublicIP
      ServerAdmin webmaster@localhost
@@ -134,7 +134,7 @@ Paste this into a file:
       LogLevel warn
       CustomLog ${APACHE_LOG_DIR}/access.log combined
 </VirtualHost>
-"
+
 
 sudo a2dissite 000-default.conf
 
