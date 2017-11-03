@@ -27,7 +27,9 @@ usermod -aG sudo grader
 ### Update all currently installed packages
 
 apt-get update
+
 apt-get upgrade
+
 reboot
 
 ### Set-up SSH keys for user grader
@@ -39,7 +41,9 @@ ssh-keygen
 in /home/grader/:
 
 sudo mkdir .ssh
+
 sudo cd .ssh
+
 sudo nano authorized_keys
 
 Paste the public key contents that you have on your local machine as a result of ssh-keygen into the above authorized_keys file.
@@ -49,6 +53,7 @@ Paste the public key contents that you have on your local machine as a result of
 sudo nano /etc/ssh/sshd_config
 
 change line "PermitRootLogin without-password" to "PermitRootLogin no"
+
 uncomment line "PasswordAuthentication no"
 
 service ssh restart
@@ -68,20 +73,25 @@ sudo service ssh restart
 ### Configure Uncomplicated Firewall
 
 sudo ufw allow 2200
+
 sudo ufw allow 80
+
 sudo ufw allow 123
+
 sudo ufw deny 22
+
 sudo ufw enable
 
 ### Clone the repository
 
 cd /var/www
+
 sudo git clone https://github.com/contactmrsokol/Catalog.git
 
 ### Update Catalog.wsgi
 
 I put this into the file:
-
+"
 import sys
 import logging
 
@@ -90,7 +100,7 @@ sys.path.insert(0, '/var/www/Catalog')
 
 from application import app as application
 application.secret_key = 'SUPER_SECRET_KEY'  
-
+"
 ### Update the Google OAuth client secrets file
 
 nano client_secrets.json
@@ -102,7 +112,7 @@ add http://52.14.139.55/ to "javascript_origins": part and also in your google d
 sudo nano /etc/apache2/sites-enabled/Catalog.conf
 
 Paste this into a file:
-
+"
 <VirtualHost *:80>
      ServerName  PublicIP
      ServerAdmin webmaster@localhost
@@ -122,6 +132,7 @@ Paste this into a file:
       LogLevel warn
       CustomLog ${APACHE_LOG_DIR}/access.log combined
 </VirtualHost>
+"
 
 sudo a2dissite 000-default.conf
 
