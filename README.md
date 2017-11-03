@@ -124,7 +124,9 @@ Paste this into a file:
 </VirtualHost>
 
 sudo a2dissite 000-default.conf
+
 sudo a2ensite Catalog.conf
+
 sudo service apache2 reload
 
 And that's it enjoy the app!
@@ -132,9 +134,11 @@ And that's it enjoy the app!
 ## Resources
 
 [Flask Config](http://flask.pocoo.org/docs/0.12/config/)
+
 [Google](http://www.google.com)
 
 ## About
 
-Author: Alexander 
+Author: Alexander Sokol
+
 Email: contactmrsokol@gmail.com
