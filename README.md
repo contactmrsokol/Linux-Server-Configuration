@@ -91,6 +91,7 @@ sudo git clone https://github.com/contactmrsokol/Catalog.git
 ### Update Catalog.wsgi
 
 I put this into the file:
+
 "
 import sys
 import logging
@@ -112,6 +113,7 @@ add http://52.14.139.55/ to "javascript_origins": part and also in your google d
 sudo nano /etc/apache2/sites-enabled/Catalog.conf
 
 Paste this into a file:
+
 "
 <VirtualHost *:80>
      ServerName  PublicIP
