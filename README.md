@@ -114,7 +114,7 @@ sudo nano /etc/apache2/sites-enabled/Catalog.conf
 
 Paste this into a file:
 
-
+```
 <VirtualHost *:80>
      ServerName  PublicIP
      ServerAdmin webmaster@localhost
@@ -134,7 +134,7 @@ Paste this into a file:
       LogLevel warn
       CustomLog ${APACHE_LOG_DIR}/access.log combined
 </VirtualHost>
-
+```
 
 sudo a2dissite 000-default.conf
 
